@@ -1,4 +1,4 @@
-# Spring Boot RESTful API - Jpa Hibernate Example #
+# Spring Boot RESTful API - JPA Hibernate MySQL Example #
 
 RESTful API using Spring Boot, Swagger2, JPA hibernate and Mysql, One to Many, Many to One bidirectional mapping
 
@@ -14,7 +14,7 @@ RESTful API using Spring Boot, Swagger2, JPA hibernate and Mysql, One to Many, M
 * Problem - SubProblem (One-To-Many)
 * SubProblem - Problem (Many-To-One)
 
-
+&nbsp;
 ## Running the project with MySQL ##
 
 append this at the end of application.yml
@@ -42,3 +42,9 @@ spring:
       hikari:
         maximum-pool-size: 2
 ```
+
+## Swagger ## 
+
+You can use the Swagger API Documentation at http://{Your_Server}:{Port}/swagger-ui.html
+
+
