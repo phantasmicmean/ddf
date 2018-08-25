@@ -20,6 +20,38 @@ RESTful API using Spring Boot, Swagger2, JPA hibernate and Mysql, One to Many, M
 
 &nbsp;
 
+## Before we go, Check the domain class ## 
+
+   **1. Problem.java(part of)**
+
+```java
+@OneToMany(mappedBy = "project", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, orphanRemoval = true)
+private Set <Problem> problems = new HashSet<>();
+/* Project <-> Problem One to Many bidirectional */
+```
+
+**2. Problem.java(part of)**
+
+```java
+@ManyToOne(cascade = CascadeType.REMOVE)
+@JoinColumn(name = "code", referencedColumnName = "code", nullable = false)
+private Project project; 
+/* Problem <-> Project  Many to One bidirectional */
+
+@OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+private Set<subProblem> subProblems = new HashSet<>();
+//Problem <-> SubProblem  One to Many bidirectional
+```
+
+**3. SubProblem.java(part of)**
+
+```java
+@ManyToOne(cascade = CascadeType.REMOVE)
+@JoinColumn(name = "pro_idx", referencedColumnName = "idx", nullable = false)
+private Problem problem; 
+/* Problem <-> Project Many to One bidirectional */
+```
+
 ## RESTful API Server ##
 
 &nbsp;
