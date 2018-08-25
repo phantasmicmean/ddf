@@ -1,6 +1,5 @@
 # Spring Boot RESTful API - JPA Hibernate MySQL Example #
-
-&nbsp;
+*by S.M.Lee(phantasmicmeans)*
 
 RESTful API using Spring Boot, Swagger2, JPA hibernate and Mysql, One to Many, Many to One bidirectional mapping
 
@@ -10,7 +9,6 @@ RESTful API using Spring Boot, Swagger2, JPA hibernate and Mysql, One to Many, M
 
 ![image](https://user-images.githubusercontent.com/28649770/44622337-69c67a80-a8f1-11e8-99d7-34adb90779a3.png)
 
-&nbsp;
 
 ### Bidirectional Mapping ### 
 
@@ -34,6 +32,8 @@ POST | /api/project | save Project (code will generate by constructor)
 DELETE | /api/project/{code} | delete Project with code
 PUT | /api/project/{code} | update Project with code
 
+&nbsp;
+
 **API Description for Problem & SubProblem**
 
 METHOD | PATH | DESCRIPTION 
@@ -43,9 +43,61 @@ POST | /api/problem/{code} | save Problem with code
 DELETE | /api/problem/{code}/all | delete all Problem-Subproblem with code
 POST | /api/subproblem | save Subproblem
 
+&nbsp;
+
+## Curl ## 
+
+&nbsp;
+**Curl for Project**
+
+1. Get a Project with code
+```bash
+curl -X GET http://localhost:8080/problem/0gn547 
+```
+
+2. Save a Project with code 
+```bash
+curl -d '{"title":"first project"}' -H "Content-Type: application/json" -X POST http://localhost:8080/project
+```
+
+3. Delete a Project with code
+```bash
+curl -X DELETE http://localhost:8001/project/0gn547
+```
+
+4. Update a Project with code 
+```bash
+curl -X PUT -H "Content-Type: application/json; charset=utf-8" -d '{"title":"first-project-renewal"}' http://localhost:8080/project/hx6029
+```
+&nbsp;
+
+**Curl for Problem & SubProblem**
+&nbsp;
+
+1. Get a Problem with code
+```bash
+curl -X GET http://localhost:8001/problem/0gn547 
+```
+
+2. Save a Problem with code
+```bash
+curl -d '{"title":"first problem"}' -H "Content-Type: application/json" -X POST http://localhost:8080/problem/hx6029
+```
+
+3. Delete a Problem-SubProblem with code
+```bash
+curl -X DELETE http://localhost:8001/problem/hx6029/all 
+``` 
+4. Save a SubProblem 
+```bash
+curl -d '{"content":"first-subproblem","pro_idx":1}' -H "Content-Type: application/json" -X POST http://localhost:8080/subproblem
+```
+&nbsp;
+
 ## Running the project with MySQL ##
 
 append this at the end of application.yml
+&nbsp;
 
 ```yml
 spring:
@@ -71,6 +123,7 @@ spring:
         maximum-pool-size: 2
 ```
 
+&nbsp;
 
 
 ## Swagger ## 
