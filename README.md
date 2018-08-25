@@ -52,10 +52,13 @@ private Problem problem;
 /* Problem <-> Project Many to One bidirectional */
 ```
 
+&nbsp;
+
+
 ## RESTful API Server ##
 
 &nbsp;
-**API Description for Project**
+**1. API Description for Project**
 
 METHOD | PATH | DESCRIPTION 
 ------------|-----|------------
@@ -65,8 +68,7 @@ DELETE | /api/project/{code} | delete Project with code
 PUT | /api/project/{code} | update Project with code
 
 &nbsp;
-
-**API Description for Problem & SubProblem**
+**2. API Description for Problem & SubProblem**
 
 METHOD | PATH | DESCRIPTION 
 ------------|-----|------------
@@ -80,7 +82,7 @@ POST | /api/subproblem | save Subproblem
 ## Curl ## 
 
 &nbsp;
-**Curl for Project**
+**1. Curl for Project**
 
 1. Get a Project with code
 ```bash
@@ -103,7 +105,7 @@ curl -X PUT -H "Content-Type: application/json; charset=utf-8" -d '{"title":"fir
 ```
 &nbsp;
 
-**Curl for Problem & SubProblem**
+**2. Curl for Problem & SubProblem**
 &nbsp;
 
 1. Get a Problem with code
